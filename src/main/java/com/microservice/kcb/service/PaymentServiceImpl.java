@@ -39,7 +39,7 @@ public class PaymentServiceImpl implements PayementService {
 				log.info("b2c Payment was successful, sending SMS notification..: {}", mnoResponse.getMessage());
 				
 				
-				// send SMS notification
+				// send success SMS notification
 				smsService.sendSms(phoneNumber, mnoResponse.getMessage());
 				
 				//persist to db::
@@ -53,7 +53,11 @@ public class PaymentServiceImpl implements PayementService {
 				b2cRepository.save(b2c);
 				log.info("Transaction saved -> {}", b2c);
 			} else {
+				
 				log.warn("b2c Payment failed: {}", mnoResponse.getMessage());
+				
+				// send failure  SMS notification
+				smsService.sendSms(phoneNumber, mnoResponse.getMessage());
 			}
 			
 			return mnoResponse;
