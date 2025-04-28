@@ -1,4 +1,4 @@
-This back-end integrates with a MNO(Mobile Network Operator) Payment API by implemenating a B2C transaction and sending an SMS notification to the user based on the outcome of the transaction.
+This back-end service integrates with a MNO(Mobile Network Operator) Payment API by implemenating a B2C transaction and sending an SMS notification to the user based on the outcome of the transaction.
 
 Stack used: 
 - Java 23
